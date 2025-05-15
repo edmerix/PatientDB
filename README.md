@@ -16,7 +16,7 @@ This means that data can be accessed  _circularly_, and  _infinitely/recursively
 
 From there, each object (i.e. each item before or after a dot) has its own methods and properties, while the PatientDB as a whole has methods to access most of the data intuitively.
 
-Check out the [schematic ("subway map") below](schematic) for an overview of the structure and how the data interact with each other, and for detailed information on the structure, each object's methods, and how to build your own database, check out the [full manual](Docs/PatientDB_manual.pdf).
+Check out the [schematic ("subway map") below](#schematic) for an overview of the structure and how the data interact with each other, and for detailed information on the structure, each object's methods, and how to build your own database, check out the [full manual](Docs/PatientDB_manual.pdf).
 
 ### Quick start
 ##### Load the PatientDB data:
@@ -66,7 +66,7 @@ units = [pdb.patients.PT_89.units; pdb.patients.PT_89.reimplantOf.units];
 ```
 et voila.
 
-Similarly, unit objects point to whichever seizure/event they're referring to in `relatedSeizure` and `relatedEvent` fields, and to another unit from a different file if they've been deemed to be the same neuron, in `sameUnit`. Check the [PatientDB map](Docs/PatientDB_map.pdf) for more of these relationships between objects, which automatically remain linked once added.
+Similarly, unit objects point to whichever seizure/event they're referring to in `relatedSeizure` and `relatedEvent` fields, and to another unit from a different file if they've been deemed to be the same neuron, in `sameUnit`. Check the [PatientDB map](#schematic) for more of these relationships between objects, which automatically remain linked once added.
 ##### Structure
 The data are stored in an object-oriented, mutable manner, meaning you can get the data you want in many different ways, and they can reference themselves circularly. For example:
 `truism = pdb.patients.PT_23.seizures(1).patient == pdb.patients.PT_23;`
@@ -95,7 +95,7 @@ Find all seizures that were CPS and recorded on Behnke-Fried microwires:
 ```
 data = pdb.getSeizures('implantType','BF','type','CPS');
 ```
-data now contains all seizure objects that meet those criteria. 
+data now contains all seizure objects that meet those criteria.
 
 Now say we want to load the data from 2 minutes before seizure onset until 1 minute after seizure offset from the first of these:
 ```
@@ -105,7 +105,7 @@ Now say we want to load the data from 2 minutes before seizure onset until 1 min
 ```
 nsx.read('time',[onset-120 offset+60]);
 ```
-Now `nsx.data` will have been populated with the requested data. 
+Now `nsx.data` will have been populated with the requested data.
 
 Note that this depends on my [NSxFile object](https://github.com/edmerix/NSxFile). If preferred, just the file location and onset/offset can be returned as strings to enable loading however desired:
 ```
