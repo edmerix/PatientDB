@@ -10,7 +10,7 @@ Keeping track of where specific data are stored in huge datasets of continuous r
 ### Why is this?
 PatientDB is entirely MATLAB code. This allows for raw data to be stored in-line, and for the interactive methods to exist within the same object. It also allows the data to be stored in an "object-oriented" manner, meaning if you change info about a specific item in the PatientDB, whatever you update will immediately apply everywhere else in the database that the item is referenced/stored, avoiding mismatched, out-of-sync data or broken links.
 
-This means that data can be accessed  _circularly_, and  _infinitely/recursively_. It also means that data access follows an "object" approach such that data within an item is accessed via a "dot". So if you have a variable called  patient, which has specific seizures in it—stored in an array called  seizures—and each one had a  file  in it, you'd access the second seizure's file with:
+This means that data can be accessed  _circularly_, and  _infinitely/recursively_. It also means that data access follows an "object" approach such that data within an item is accessed via a "dot". So if you have a variable called  `patient`, which has specific seizures in it—stored in an array called  `seizures`–and each one had a  file  in it, you'd access the second seizure's file with:
 
 `patient.seizures(2).file`
 
