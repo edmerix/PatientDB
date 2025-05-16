@@ -83,7 +83,7 @@ patients by selecting seizures without knowing which patients had them, for exam
 ```
 data = pdb.getSeizures('type','SecondaryGTC');
 ```
-will fill the variable data with an array of seizure data (each in a `PDBseizure` object). From this we can get all the patients that had secondary GTCs, without having to go through the `pdb.patients` list:
+will fill the variable `data` with an array of seizure data (each in a `PDBseizure` object). From this we can get all the patients that had secondary GTCs, without having to go through the `pdb.patients` list:
 ```
 patientsObject = [data.patient];
 patients = unique({patientsObject.id});
@@ -95,7 +95,7 @@ Find all seizures that were CPS and recorded on Behnke-Fried microwires:
 ```
 data = pdb.getSeizures('implantType','BF','type','CPS');
 ```
-data now contains all seizure objects that meet those criteria.
+`data` now contains all seizure objects that meet those criteria.
 
 Now say we want to load the data from 2 minutes before seizure onset until 1 minute after seizure offset from the first of these:
 ```
